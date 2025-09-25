@@ -8,7 +8,7 @@
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
+  <h1>Hello {version}!</h1>
   <button on:click|once={get_version}>
     Version: {version || "Get Version"}
   </button>
