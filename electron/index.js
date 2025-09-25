@@ -1,5 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
-const { join } = require("path");
+import { app, BrowserWindow, ipcMain } from "electron";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const isDev = !app.isPackaged;
 
@@ -15,7 +19,7 @@ function main() {
     },
   });
   window.loadFile(join(__dirname, "../public/index.html"));
-  window.on("ready-to-show", window.show);
+  window.on("ready-to-show", () => window.show());
 
   if (isDev) window.webContents.openDevTools();
 }
