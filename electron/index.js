@@ -24,4 +24,4 @@ function main() {
   if (isDev) window.webContents.openDevTools();
 }
 
-ipcMain.handle("get/version", () => app.getVersion());
+ipcMain.handleOnce("get/version", () => app.getVersion());
