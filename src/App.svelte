@@ -1,6 +1,6 @@
 <script>
-  export let name;
-  let version;
+  let { name } = $props();
+  let version = $state();
 
   const get_version = async () => {
     version = await api.GetVersion();
@@ -9,7 +9,7 @@
 
 <main>
   <h1>Hello {version}!</h1>
-  <button on:click|once={get_version}>
+  <button onclick={get_version}>
     Version: {version || "Get Version"}
   </button>
 </main>
